@@ -1,7 +1,9 @@
 # Tournament
-bordfodboldturnering is an application that manages teams, matches and results in a tablefootball tournament.
-These are the use cases the application supports:
+ -  is an application that manages teams, matches and results in a tablefootball tournament. It is an example case used for teaching OOP with Java for people who have very little experience with fundamental programmaing.
+ Subjects: instantiation, constructors  (later enum, ArrayList), toString method, foreach, instance method invokation                        getters and setters, datastructure choice, foreach with condition, sorting, Comparator interface compareTo(), Comparable interface compare().                                                                                                                                   
 
+
+These are the use cases the application supports:
 
 USE CASE 1: Register teams that will play the tournament
 Providing team names and player details, teams are enrolled in the tournament and will be added to the match schedule at a later point.
@@ -27,16 +29,12 @@ We want to be able to display information about scheduled matches, both before a
 USE CASE 6 : Register the result of a match
 When a match has played, it is the responsibility of the winner team captain to register the match. With a matchID to look up the match, he/she will be able to input a score for each team of the match.
  
-  
+
+USE CASE 7: what is the next match?
+Mid tournament, we want to be able to see when the next match is played and who will play it. 
 
 
- USE CASE 7: what is the next match?
- Mid tournament, we want to be able to see when the next match is played and who will play it. 
-
-  
-
-
- USE CASE 8:  Final results and scoreboard
+USE CASE 8:  Final results and scoreboard
    Post tournament, we want to be able to see
     - who won the tournament
     - who are the runners up where
