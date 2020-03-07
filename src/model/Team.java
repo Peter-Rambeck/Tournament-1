@@ -36,7 +36,7 @@ public class Team {
 
     @Override
     public String toString(){
-            String str = this.name+ " players: "+ this.players;
+            String str = this.name+ ", "+ this.players;
             return str;
     }
 
