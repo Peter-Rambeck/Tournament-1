@@ -41,9 +41,17 @@ public class Main {
         Team team6 = registerTeam("Plumstead",new String[]{"Mary","Martin"});
         Team team7 = registerTeam("Vedersø",new String[]{"Bodil","Svaage"});
         Team team8 = registerTeam("Allerslev",new String[]{"Stina","Torben"});
-
+        /** USE CASE 2: See which teams  are currently registered to the tournament
+         *  It should be possible to sort the teams in various ways, (natural, points, alphabetical etc.)
+         * */
         displayTeams();
-
+        /**  USE CASE 3 : Schedule the matches of the tournament
+         *   This is a knock-out type tournament. With 8 registered teams,
+         *   we need 7 matches: 4 initial round matches(quarterfinals), 2 semifinals and 1 final.
+         *   we want the tournament to be played in no more than 3 hours and 30 minutes.
+         *   (If a winner is not found within 30 minutes of a match, it's result will be a 5-5 DRAW)
+         *   UX requirement on request
+         * */
 
         int match1 = scheduleMatch(LocalDateTime.of(2020,03,6,12,00));
         int match2 = scheduleMatch(LocalDateTime.of(2020,03,6,12,30));
@@ -53,17 +61,44 @@ public class Main {
         int semifinal2 = scheduleMatch(LocalDateTime.of(2020,03,6,14,30));
         int finalmatch = scheduleMatch(LocalDateTime.of(2020,03,6,15,00));
 
+        /** USE CASE 4 : Show all scheduled matches
+         *  We want to be able to display information about scheduled matches,
+         *      both before and after teams and results have been assigned.
+         * */
+        displayMatches();  //Before teams and results
+
+        /*
+         * USE CASE 5 : Add teams to scheduled matches
+         * matches are normally sheduled before we know which teams will be playing them,
+         * so we need some way of adding teams to sheduled matches seperately.
+         */
+
         updateMatch(match1, team1, team2);
         updateMatch(match2, team3, team4);
         updateMatch(match3, team5, team6);
         updateMatch(match4, team7, team8);
 
-        //registerResult();
 
 
-        displayMatches();
+        displayMatches();//After teams and before results
 
-      //TODO: displayMatches()//System.out.println(getMatchById(match1));
+/** USE CASE 6 : Register the result of a match
+ * When a match has played, it is the responsibility of the winner team captain to register the match
+ * With a matchID to look up the match, he will be able to input a score for each team of the match.
+ *
+ * */
+
+
+        /** Det tal man skriver først i registreringen vil tilhøre kampens hold1.
+         Dette må man sikre aldrig kan gå galt ved at man i UIen spørger hvad hold1's målscore blev, derefter hold2's*/
+
+// Team winner1 = registerResult(match1,2,10);
+
+
+
+
+
+
     }
 
     public static void updateMatch(int m, Team team1, Team team2){
@@ -102,6 +137,7 @@ public class Main {
             System.out.println(m);
         }
     }
+
 
     private static Team registerTeam(String teamName, String [] teamMembers) {
         Team team = new Team(teamName, teamMembers);
