@@ -8,7 +8,7 @@ public class Match {
     private Team team2;
     private String result;
     private String type;
-    private int [] score;
+    private int [] score = new int[2];
     private LocalDateTime time;
     private static int matchCount=0;
 
@@ -35,19 +35,42 @@ public class Match {
            str = "Match#" + id +
                     ", " + team1.getName() +
                     " vs. " + team2.getName() +
-                         ", time: " + time;
+                         ", time: " + time.getHour()+":"+time.getMinute();
+                   if(this.result!=null) {
+                       str += " "+this.score[0] + " - " + this.score[1];
+                   }
+
         }else{
            str = "Match#" + id +
-                    ", time: " + time;
+                    ", time: " + time.getHour()+":"+time.getMinute();
         }
         return str;
     }
 
 
-
-
-
     public int getId() {
         return id;
+    }
+
+    public Team setResult(int teamscore1, int teamscore2) {
+        Team winnerTeam;
+
+        score[0]=teamscore1;
+        score[1]=teamscore2;
+
+        if(teamscore1 > teamscore2){
+            winnerTeam = team1;
+            this.result = "TEAM1";
+            team1.addPoints(3);
+        }else{
+            winnerTeam = team2;
+            this.result = "TEAM2";
+            team2.addPoints(3);
+        }
+
+        team1.addScore(teamscore1-teamscore2);
+        team2.addScore(teamscore2-teamscore1);
+
+        return winnerTeam;
     }
 }

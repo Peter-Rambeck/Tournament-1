@@ -7,10 +7,10 @@ public class Team {
         private String name;
         private int id;
         private static int nextId= 1;
-        private int [] points;
+        private int [] points = new int[10];
+        private int matchCount = 0;
         private int score;
         private String position;
-
         private ArrayList<Player> players = new ArrayList<Player>();
 
         String attacker;
@@ -21,6 +21,7 @@ public class Team {
             this.name = name;
             attacker = memberNames[0];
             defender = memberNames[1];
+
             this.id = nextId;
             nextId++;
             for (String s:memberNames){
@@ -39,8 +40,6 @@ public class Team {
             String str = this.name+ ", "+ this.players;
             return str;
     }
-
-
 
 
         public String getName() {
@@ -66,4 +65,13 @@ public class Team {
         public String getPosition() {
             return position;
         }
+
+    public void addPoints(int i) {
+        this.points[matchCount]=i;
+        matchCount++;
     }
+    public void addScore(int score){
+
+            this.score += score;
+    }
+}

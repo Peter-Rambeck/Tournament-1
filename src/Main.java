@@ -78,8 +78,6 @@ public class Main {
         updateMatch(match3, team5, team6);
         updateMatch(match4, team7, team8);
 
-
-
         displayMatches();//After teams and before results
 
 /** USE CASE 6 : Register the result of a match
@@ -88,19 +86,21 @@ public class Main {
  *
  * */
 
-
         /** Det tal man skriver først i registreringen vil tilhøre kampens hold1.
          Dette må man sikre aldrig kan gå galt ved at man i UIen spørger hvad hold1's målscore blev, derefter hold2's*/
 
-// Team winner1 = registerResult(match1,2,10);
-
-
-
-
-
-
+        Team winner1 = registerResult(match1,2,10);
+        Team winner2 = registerResult(match2,6,10);
+        Team winner3 = registerResult(match3,10,9);
+        Team winner4 = registerResult(match4,10,1);
+        displayMatches();
     }
 
+    private static Team registerResult(int matchID,int teamScore1,int teamScore2){
+        Match match = getMatchById(matchID);
+        Team winnerTeam = match.setResult(teamScore1,teamScore2);
+        return winnerTeam;
+    }
     public static void updateMatch(int m, Team team1, Team team2){
         Match match = getMatchById(m);
         match.setTeams(team1, team2);
