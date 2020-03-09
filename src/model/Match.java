@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Match {
     private int id;
@@ -16,7 +17,6 @@ public class Match {
     public Match() {
         matchCount++;
         this.id = matchCount;
-
     }
 
     public void setTime(LocalDateTime time) {
@@ -31,18 +31,17 @@ public class Match {
     @Override
     public String toString() {
         String str;
-        if(this.team1!=null && this.team2 != null){
-           str = "Match#" + id +
-                    ", " + team1.getName() +
-                    " vs. " + team2.getName() +
-                         ", time: " + time.getHour()+":"+time.getMinute();
-                   if(this.result!=null) {
-                       str += " "+this.score[0] + " - " + this.score[1];
-                   }
+        DateTimeFormatter shortformat = DateTimeFormatter.ofPattern("HH:mm");
 
+        if(this.team1!=null && this.team2 != null){
+           str =  time.format(shortformat)+" Match#" + id +
+                    ", " + team1.getName() +
+                    " vs. " + team2.getName();
+           if(this.result!=null) {
+                 str += " "+this.score[0] + " - " + this.score[1];
+           }
         }else{
-           str = "Match#" + id +
-                    ", time: " + time.getHour()+":"+time.getMinute();
+           str = time.format(shortformat)+" Match#" + id;
         }
         return str;
     }
