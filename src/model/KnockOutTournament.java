@@ -1,6 +1,10 @@
 package model;
 
+
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
+
+import util.TeamDataLoader;
 
 public class KnockOutTournament extends Tournament {
 
@@ -19,17 +23,10 @@ public class KnockOutTournament extends Tournament {
          * UX requirement on request
          * */
 
+         registerTeams("data/teams.csv");
 
-        // smells funky here!  - TODO: refactor - extract data, create data util class
 
-        Team team1 = registerTeam("Kongelunden",new String[]{"Tess","Leif"});
-        Team team2 = registerTeam("Islands Brygge",new String[]{"Irma","Storm"});
-        Team team3 = registerTeam("Hellerup",new String[]{"Coco","Cleo"});
-        Team team4 = registerTeam("Frederiksberg",new String[]{"Sarah","Kasper"});
-        Team team5 = registerTeam("Christianshavn",new String[]{"Emma","Indigo"});
-        Team team6 = registerTeam("Plumstead",new String[]{"Mary","Martin"});
-        Team team7 = registerTeam("Vedersø",new String[]{"Bodil","Svaage"});
-        Team team8 = registerTeam("Allerslev",new String[]{"Stina","Torben"});
+
         /** USE CASE 2: See which teams  are currently registered to the tournament
          *  It should be possible to sort the teams in various ways, (natural, points, alphabetical etc.)
          * */
@@ -62,10 +59,11 @@ public class KnockOutTournament extends Tournament {
          * so we need some way of adding teams to sheduled matches seperately.
          */
 
-        updateMatch(match1, team1, team2);
-        updateMatch(match2, team3, team4);
-        updateMatch(match3, team5, team6);
-        updateMatch(match4, team7, team8);
+        /* updateMatch(match1, teams.get[0],  teams.get[1]);*/
+        updateMatch(match1, teams.get(0), teams.get(1));
+        updateMatch(match2,  teams.get(2), teams.get(3));
+        updateMatch(match3,  teams.get(4), teams.get(5));
+        updateMatch(match4,  teams.get(6), teams.get(7));
 
         displayMatches();//After teams and before results
 
@@ -97,5 +95,16 @@ public class KnockOutTournament extends Tournament {
         displayMatches();//After teams and after all results
 
 
+    }
+
+    private void registerTeams(String filename) {
+        try {
+
+            TeamDataLoader.importTeams(filename, this);
+
+        }catch( FileNotFoundException e) {
+
+            System.out.println(e);
+        }
     }
 }

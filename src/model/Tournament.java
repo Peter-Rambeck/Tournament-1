@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 abstract public class Tournament {
     private String title;
-    private static ArrayList<Team> teams = new ArrayList<Team>();
+    protected static ArrayList<Team> teams = new ArrayList<Team>();
     private static ArrayList<Match> matches = new ArrayList<Match>();
 
     public Tournament(String title) {
@@ -56,7 +56,7 @@ abstract public class Tournament {
         }
     }
 
-    protected Team registerTeam(String teamName, String[] teamMembers) {
+    public Team registerTeam(String teamName, String[] teamMembers) {
         Team team = new Team(teamName, teamMembers);
         teams.add(team);
         return team;
