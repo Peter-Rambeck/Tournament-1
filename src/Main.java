@@ -14,19 +14,15 @@
             - getRank()
 */
 
-import model.Tournament;
-
+import model.*;
 
 public class Main {
 
-
     public static void main(String[] args) {
-	    Tournament tournament = new Tournament("CPH PÅSKE CUP 2020");
-        tournament.runTest();
+        Tournament knockOutTournament = new KnockOutTournament("CPH PÅSKE CUP 2020");
+        Tournament groupTournament = new GroupTournament("CPH bordfoldbold, Foråret 2020", 2, 4);
+        knockOutTournament.runTest();
+        groupTournament.runTest();
     }
-
-
-
-
 
 }
