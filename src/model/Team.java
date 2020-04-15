@@ -10,7 +10,13 @@ public class Team {
         private int [] points = new int[10];
         private int matchCount = 0;
         private int score;
-        private String position;
+
+
+        public enum Position{
+          Winner, Finalist, Semifinalist, none
+        }
+        private Position position = Position.none;
+
         private ArrayList<Player> players = new ArrayList<Player>();
 
         String attacker;
@@ -62,7 +68,7 @@ public class Team {
             return score;
         }
 
-        public String getPosition() {
+        public Position getPosition() {
             return position;
         }
 

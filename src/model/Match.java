@@ -13,11 +13,17 @@ public class Match {
     private LocalDateTime time;
     private static int matchCount=0;
 
+public enum MatchType{
+    Final, SemiFinal, QuarterFinal
 
-    public Match() {
+}
+
+    public Match(MatchType matchType) {
         matchCount++;
         this.id = matchCount;
     }
+    private String matchType;
+
 
     public void setTime(LocalDateTime time) {
         this.time = time;

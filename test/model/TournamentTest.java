@@ -22,14 +22,12 @@ public class TournamentTest {
     public void test_registerTeam(){
         team1 = kot.registerTeam("Kongelunden",new String[]{"Tess","Leif"});
         team2 = kot.registerTeam("Islands Brygge",new String[]{"Irma","Storm"});
-
         assertEquals(team2, kot.teams.get(1));
     }
 
     @Test
     public void test_scheduleMatch(){
-        matchID = kot.scheduleMatch(LocalDateTime.of(2020,03,8,10,00));
-
+        matchID = kot.scheduleMatch(LocalDateTime.of(2020,03,8,10,00), Match.MatchType.QuarterFinal);
         assertEquals(matchID,1);
     }
 
@@ -38,7 +36,7 @@ public class TournamentTest {
     public void test_registerResult(){
         team1 = kot.registerTeam("Kongelunden",new String[]{"Tess","Leif"});
         team2 = kot.registerTeam("Islands Brygge",new String[]{"Irma","Storm"});
-        matchID = kot.scheduleMatch(LocalDateTime.of(2020,03,8,10,00));
+        matchID = kot.scheduleMatch(LocalDateTime.of(2020,03,8,10,00), Match.MatchType.QuarterFinal);
         kot.updateMatch(1, team1, team2);
         Team winner = kot.registerResult(1,10,2);
         assertEquals(winner,team1);

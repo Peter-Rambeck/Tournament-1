@@ -39,13 +39,13 @@ public class KnockOutTournament extends Tournament {
          *   UX requirement on request
          * */
 
-        int match1 = scheduleMatch(LocalDateTime.of(2020,03,6,12,00));
-        int match2 = scheduleMatch(LocalDateTime.of(2020,03,6,12,30));
-        int match3 = scheduleMatch(LocalDateTime.of(2020,03,6,13,00));
-        int match4 = scheduleMatch(LocalDateTime.of(2020,03,6,13,30));
-        int semifinal1 = scheduleMatch(LocalDateTime.of(2020,03,6,14,00));
-        int semifinal2 = scheduleMatch(LocalDateTime.of(2020,03,6,14,30));
-        int finalmatch = scheduleMatch(LocalDateTime.of(2020,03,6,15,00));
+        int match1 = scheduleMatch(LocalDateTime.of(2020,03,6,12,00), Match.MatchType.QuarterFinal);
+        int match2 = scheduleMatch(LocalDateTime.of(2020,03,6,12,30), Match.MatchType.QuarterFinal);
+        int match3 = scheduleMatch(LocalDateTime.of(2020,03,6,13,00), Match.MatchType.QuarterFinal);
+        int match4 = scheduleMatch(LocalDateTime.of(2020,03,6,13,30), Match.MatchType.QuarterFinal);
+        int semifinal1 = scheduleMatch(LocalDateTime.of(2020,03,6,14,00), Match.MatchType.SemiFinal);
+        int semifinal2 = scheduleMatch(LocalDateTime.of(2020,03,6,14,30), Match.MatchType.SemiFinal);
+        int finalmatch = scheduleMatch(LocalDateTime.of(2020,03,6,15,00), Match.MatchType.Final);
 
         /** USE CASE 4 : Show all scheduled matches
          *  We want to be able to display information about scheduled matches,

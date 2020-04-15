@@ -33,8 +33,8 @@ abstract public class Tournament {
         return foundMatch;
     }
 
-    protected int scheduleMatch(LocalDateTime time){
-        Match m = new Match();
+    protected int scheduleMatch(LocalDateTime time, Match.MatchType type){
+        Match m = new Match(type);
         m.setTime(time);
         matches.add(m);
         return m.getId();
