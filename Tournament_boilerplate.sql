@@ -20,6 +20,17 @@ position ENUM ('Winner', 'Finalist', 'Semifinalist', 'none'),
 PRIMARY KEY (id)
 )ENGINE = InnoDB;
 
+
+/* Lav en sammenføjningstabel for hold og kampe */
+create table teamMatches(
+matchID int NOT NULL,
+teamID int NOT NULL,
+PRIMARY KEY (matchID, teamID),
+FOREIGN KEY (matchID) REFERENCES matches(id),
+FOREIGN KEY (teamID) REFERENCES teams(id),
+score int
+)ENGINE = InnoDB;
+
 /* sæt data ind i hold tabellen */
 INSERT into teams (name, position) values ('De Uovervindelige','none');
 
