@@ -15,8 +15,6 @@ SET FOREIGN_KEY_CHECKS=1;
 create table teams (
 id int NOT NULL AUTO_INCREMENT,
 name VARCHAR(40), 
-points int,
-position ENUM ('Winner', 'Finalist', 'Semifinalist', 'none'),
 PRIMARY KEY (id)
 )ENGINE = InnoDB;
 
