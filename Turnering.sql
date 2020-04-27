@@ -11,9 +11,10 @@ SET FOREIGN_KEY_CHECKS=1;
 
 create table teams (
 id int NOT NULL AUTO_INCREMENT,
-finame VARCHAR(40), 
+name VARCHAR(40), 
 PRIMARY KEY (id)
 )ENGINE = InnoDB;
+
 
 create table players (
 id int NOT NULL AUTO_INCREMENT,
@@ -22,6 +23,7 @@ teamID int,
 PRIMARY KEY (id),
 FOREIGN KEY (teamID) REFERENCES teams(id)
 )ENGINE = InnoDB;
+
 
 create table matches (
 id int NOT NULL AUTO_INCREMENT,
@@ -38,7 +40,6 @@ startDate DATE,
 winnerTeamID int,
 PRIMARY KEY (id)
 )ENGINE = InnoDB;
-
 
 
 create table teamMatches(
@@ -77,15 +78,11 @@ INSERT into players (name, teamID) VALUES ('Mathias',4);
 
 INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-09-03','12:00:00');
 INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-09-03','12:30:00');
-INSERT into matches ( matchtype, date, time) VALUES ('final','2020-09-04','12:00:00');
-
+INSERT into matches ( matchtype, date, time) VALUES ('final','2020-09-04','12:00:00');orderID
 
 INSERT into tournaments ( name, startDate) VALUES ('JuleCup','2019-12-20');
 INSERT into tournaments ( name, startDate) VALUES ('PåskeCup','2020-04-01');
 INSERT into tournaments ( name, startDate) VALUES ('SemesterStartsCup','2020-09-01');
-
-
-
 
 INSERT into teamMatches ( matchID, teamID, score) VALUES (1,1,10);
 INSERT into teamMatches ( matchID, teamID, score) VALUES (1,2,8);
@@ -104,7 +101,6 @@ INSERT into tournamentTeams (tournamentID, teamID) VALUES (2,4);
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (3,1);
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (3,3);
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (3,4);
-
 
 /*Ændre dato for  påskeCUP*/
 UPDATE tournaments SET startDate = '2020-09-21'  WHERE id = 2;

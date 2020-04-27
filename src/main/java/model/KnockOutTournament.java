@@ -38,7 +38,7 @@ public class KnockOutTournament extends Tournament {
          *   (If a winner is not found within 30 minutes of a match, it's result will be a 5-5 DRAW)
          *   UX requirement on request
          * */
-
+/*
         int match1 = scheduleMatch(LocalDateTime.of(2020,03,6,12,00), Match.MatchType.QuarterFinal);
         int match2 = scheduleMatch(LocalDateTime.of(2020,03,6,12,30), Match.MatchType.QuarterFinal);
         int match3 = scheduleMatch(LocalDateTime.of(2020,03,6,13,00), Match.MatchType.QuarterFinal);
@@ -46,7 +46,7 @@ public class KnockOutTournament extends Tournament {
         int semifinal1 = scheduleMatch(LocalDateTime.of(2020,03,6,14,00), Match.MatchType.SemiFinal);
         int semifinal2 = scheduleMatch(LocalDateTime.of(2020,03,6,14,30), Match.MatchType.SemiFinal);
         int finalmatch = scheduleMatch(LocalDateTime.of(2020,03,6,15,00), Match.MatchType.Final);
-
+*/
         /** USE CASE 4 : Show all scheduled matches
          *  We want to be able to display information about scheduled matches,
          *      both before and after teams and results have been assigned.
@@ -59,12 +59,12 @@ public class KnockOutTournament extends Tournament {
          * so we need some way of adding teams to sheduled matches seperately.
          */
 
-        /* updateMatch(match1, teams.get[0],  teams.get[1]);*/
+        /* updateMatch(match1, teams.get[0],  teams.get[1]);
         updateMatch(match1, teams.get(0), teams.get(1));
         updateMatch(match2,  teams.get(2), teams.get(3));
         updateMatch(match3,  teams.get(4), teams.get(5));
         updateMatch(match4,  teams.get(6), teams.get(7));
-
+*/
         displayMatches();//After teams and before results
 
 /** USE CASE 6 : Register the result of a match
@@ -74,7 +74,7 @@ public class KnockOutTournament extends Tournament {
  * */
 
         /** Det tal man skriver først i registreringen vil tilhøre kampens hold1.
-         Dette må man sikre aldrig kan gå galt ved at man i UIen spørger hvad hold1's målscore blev, derefter hold2's*/
+         Dette må man sikre aldrig kan gå galt ved at man i UIen spørger hvad hold1's målscore blev, derefter hold2's
 
         Team winner1 = registerResult(match1,2,10);
         Team winner2 = registerResult(match2,6,10);
@@ -94,7 +94,7 @@ public class KnockOutTournament extends Tournament {
 
         displayMatches();//After teams and after all results
 
-
+         */
     }
 
     private void registerTeams(String filename) {

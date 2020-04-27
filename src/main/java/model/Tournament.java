@@ -1,7 +1,11 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 abstract public class Tournament {
     private String title;
@@ -35,20 +39,21 @@ abstract public class Tournament {
 
     protected int scheduleMatch(LocalDateTime time, Match.MatchType type){
         Match m = new Match(type);
-        m.setTime(time);
+        m.setTime(time.toLocalTime());
+        m.setDate(time.toLocalDate());
         matches.add(m);
         return m.getId();
     }
 
     abstract public void runTest();
 
-    protected void displayTeams() {
+    public void displayTeams() {
         for (Team t:teams) {
             System.out.println(t);
         }
     }
 
-    protected void displayMatches() {
+    public void displayMatches() {
         System.out.println("*****************  TOURNAMENT SCHEDULE  *****************");
 
         for (Match m:matches) {
@@ -60,5 +65,20 @@ abstract public class Tournament {
         Team team = new Team(teamName, teamMembers);
         teams.add(team);
         return team;
+    }
+
+    public void generateMatchesFromDB(ArrayList<String[]> matchesdata) {
+        Iterator it = matchesdata.iterator();
+        while(it.hasNext()){
+            String[] matchdata = (String[]) it.next();
+            DateTimeFormatter dateformatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date = LocalDate.parse(matchdata[3], dateformatter);
+            DateTimeFormatter timeformatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime time = LocalTime.parse(matchdata[4], timeformatter);
+            Match.MatchType type = Match.MatchType.valueOf(matchdata[1]);
+            Match match = new Match(date, time, type);
+            matches.add(match);
+        }
+
     }
 }

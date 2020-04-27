@@ -1,6 +1,8 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Match {
@@ -10,23 +12,33 @@ public class Match {
     private String result;
     private String type;
     private int [] score = new int[2];
-    private LocalDateTime time;
+    private LocalDate date;
+
+    private LocalTime time;
     private static int matchCount=0;
-
-public enum MatchType{
-    Final, SemiFinal, QuarterFinal
-
-}
+    private MatchType matchType;
+    public enum MatchType{
+      FINAL, SEMIFINAL, QUARTERFINAL, GROUPPLAY, DEFAULT
+    }
 
     public Match(MatchType matchType) {
         matchCount++;
         this.id = matchCount;
     }
-    private String matchType;
 
+    public Match(LocalDate date, LocalTime time, MatchType matchType) {
+          this.time = time;
+          this.date = date;
+          this.matchType = matchType;
+          matchCount++;
+          this.id = matchCount;
+    }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(LocalTime time) {
         this.time = time;
+    }
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public void setTeams(Team team1, Team team2){
