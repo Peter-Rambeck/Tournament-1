@@ -135,6 +135,18 @@ abstract public class Tournament {
                             }
                 break;
             case "ranked":   System.out.println("************ TEAMS RANKED *****************");
+            Comparator comp= new TeamSortByRank();
+                Collections.sort(sortedTeams, comp);
+
+                for (Object st: sortedTeams) {
+                    Team t = (Team) st;
+                    int rank = getTeamRank(t.getId());
+                    System.out.println(rank+". "+t);
+                }
+                break;
+            case "score":   System.out.println("************ TEAMS RANKED *****************");
+               // Comparator comp2= new TeamSortByScore();
+            //    Collections.sort(sortedTeams, comp2);
 
                 for (Object st: sortedTeams) {
                     Team t = (Team) st;
@@ -143,7 +155,6 @@ abstract public class Tournament {
                 }
                 break;
         }
-
     }
 
 
