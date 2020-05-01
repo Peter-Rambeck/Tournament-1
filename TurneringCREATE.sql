@@ -89,14 +89,14 @@ INSERT into players (name, teamID) VALUES ('Gustav', 1);
 INSERT into players (name, teamID) VALUES ('Jacob',1);
 INSERT into players (name, teamID) VALUES ('Mathias',2);
 INSERT into players (name, teamID) VALUES ('Mathias',2);
-INSERT into players (name, teamID) VALUES ('Emil',3);
+INSERT into players (name, teamID) VALUES ('Tobias',3);
 INSERT into players (name, teamID) VALUES ('Emil',3);
 INSERT into players (name, teamID) VALUES ('Mohammed',4);
 INSERT into players (name, teamID) VALUES ('Mathias',4);
 
-INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-09-03','12:00:00');
-INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-09-03','12:30:00');
-INSERT into matches ( matchtype, date, time) VALUES ('final','2020-09-04','12:00:00');
+INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-04-30','19:00:00');
+INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-04-30','21:30:00');
+INSERT into matches ( matchtype, date, time) VALUES ('final','2020-05-30','22:00:00');
 
 
 INSERT into matcheswithteams ( matchtype, date, time,team1ID, team2ID ) VALUES ('Semifinal','2020-09-03','12:00:00',1,2);
@@ -106,16 +106,16 @@ INSERT into matcheswithteams ( matchtype, date, time,team1ID, team2ID) VALUES ('
 
 
 INSERT into tournaments ( name, startDate) VALUES ('JuleCup','2019-12-20');
-INSERT into tournaments ( name, startDate) VALUES ('PåskeCup','2020-04-01');
+INSERT into tournaments ( name, startDate) VALUES ('PåskeCup','2020-05-01');
 INSERT into tournaments ( name, startDate) VALUES ('SemesterStartsCup','2020-09-01');
-/*
+
 INSERT into teamMatches ( matchID, teamID, score) VALUES (1,1,10);
-INSERT into teamMatches ( matchID, teamID, score) VALUES (1,2,8);
-INSERT into teamMatches ( matchID, teamID, score) VALUES (2,3,9);
+INSERT into teamMatches ( matchID, teamID, score) VALUES (1,2,9);
+INSERT into teamMatches ( matchID, teamID, score) VALUES (2,3,0);
 INSERT into teamMatches ( matchID, teamID, score) VALUES (2,4,10);
 INSERT into teamMatches ( matchID, teamID, score) VALUES (3,1,10);
-INSERT into teamMatches ( matchID, teamID, score) VALUES (3,4,5);
-*/
+INSERT into teamMatches ( matchID, teamID, score) VALUES (3,4,9);
+
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (1,1);
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (1,2);
 INSERT into tournamentTeams (tournamentID, teamID) VALUES (1,3);

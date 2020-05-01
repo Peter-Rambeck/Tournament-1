@@ -12,19 +12,36 @@
  use case 8 - reuse displayTeams (sort by score)        sorting, Comparator interface, compareTo()
             - TeamsSortByRank with score
             - getRank()
+
+
+TODO
+ -  Automatisering af timeslots
+    Med start tidspunkt for turnering, samt antal hold,
+    skal en metode kunne generere de nødvendige time objekter, der skal bruges i sheduleMatch metoden
 */
+
 
 import controller.Controller;
 import model.*;
+import view.UI;
+
 
 public class Main {
 
+
     public static void main(String[] args) {
-        Tournament knockOutTournament = new KnockOutTournament("CPH PÅSKE CUP 2020");
-       // Tournament groupTournament = new GroupTournament("CPH bordfoldbold, Foråret 2020", 2, 4);
-        //knockOutTournament.runTest();
-      //  groupTournament.runTest();
-        Controller ctrl = new Controller(knockOutTournament);
+        /**
+         * USE CASE 9
+         * The application should be able to handle more than one tournament at a given time.
+         * There may fx. be one for each department or each year(årgang)
+         * */
+
+        Tournament knockOutTournament = new KnockOutTournament("CPH PÅSKE CUP 2020 i bordfodbold");
+       // knockOutTournament.runTest();
+
+      //I stedet for at det hele kører som en lang test, laver vi nu en controller med et UI som vi kan teste tingene i...
+       Controller ctrl = new Controller(new UI(),knockOutTournament);
+        ctrl.showMainMenu();
     }
 
 }
