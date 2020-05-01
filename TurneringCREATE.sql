@@ -94,9 +94,9 @@ INSERT into players (name, teamID) VALUES ('Emil',3);
 INSERT into players (name, teamID) VALUES ('Mohammed',4);
 INSERT into players (name, teamID) VALUES ('Mathias',4);
 
-INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-04-30','19:00:00');
-INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-04-30','21:30:00');
-INSERT into matches ( matchtype, date, time) VALUES ('final','2020-05-30','22:00:00');
+INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-05-01','8:00:00');
+INSERT into matches ( matchtype, date, time) VALUES ('Semifinal','2020-05-01','10:30:00');
+INSERT into matches ( matchtype, date, time) VALUES ('final','2020-05-01','13:00:00');
 
 
 INSERT into matcheswithteams ( matchtype, date, time,team1ID, team2ID ) VALUES ('Semifinal','2020-09-03','12:00:00',1,2);
